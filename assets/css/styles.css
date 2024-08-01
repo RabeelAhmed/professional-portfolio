@@ -681,8 +681,3 @@ img {
   transform: translateY(-100%);
   opacity: 0;
 }
-
-
-.hidden-video {
-  display: none;
-}
