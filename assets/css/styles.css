@@ -667,7 +667,10 @@ img {
 
 /* ===== PRELOADER=====*/
 #preloader {
-  background: #ECE5C7 url('/assets/img/loader.gif') no-repeat center center;
+  background: #ECE5C7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-size: 25%;
   height: 100vh;
   width: 100%;
@@ -680,4 +683,19 @@ img {
 .hide-preloader {
   transform: translateY(-100%);
   opacity: 0;
+}
+
+.spinner {
+  width: 70px;
+  height: 70px;
+  border: 11.2px #474bff double;
+  border-left-style: solid;
+  border-radius: 50%;
+  animation: spinner-aib1d7 0.75s infinite linear;
+}
+
+@keyframes spinner-aib1d7 {
+  to {
+     transform: rotate(360deg);
+  }
 }
