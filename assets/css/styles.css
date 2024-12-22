@@ -295,21 +295,20 @@ img {
   border-radius: 0.5rem;
   z-index: var(--z-back);
 }
-.skills__sql {
-  width: 80%;
-}
 .skills__html {
   width: 95%;
 }
+.skills__tailwind {
+  width: 80%;
+}
 .skills__css {
-  width: 85%;
+  width: 75%;
 }
 .skills__js {
-  width: 65%;
+  width: 70%;
 }
 .skills__react {
-  width: 35%;
-  background-color: #FFB22C;
+  width: 65%;
 }
 .skills__img {
   border-radius: 0.5rem;
