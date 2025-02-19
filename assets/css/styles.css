@@ -685,8 +685,38 @@ img {
   }
 }  
 
+
+/* Style for the back-to-top button */
+.back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  display: none; /* Hidden by default */
+  width: 40px;
+  height: 40px;
+  background-color: #B9B28A;
+  color: #504B38;
+  text-align: center;
+  line-height: 40px;
+  font-size: 24px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+  z-index: 1000; /* Make sure it's above other elements */
+}
+
+.back-to-top:hover {
+  background-color: #A4B465;
+}
+
+/* Show the button when the user scrolls down */
+.show-back-to-top {
+  display: block;
+}
+
+
 /* ===== PRELOADER=====*/
-#preloader {
+/* #preloader {
   background: #ECE5C7;
   display: flex;
   justify-content: center;
@@ -718,4 +748,4 @@ img {
   to {
      transform: rotate(360deg);
   }
-}
+} */

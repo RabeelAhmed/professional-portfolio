@@ -49,8 +49,31 @@ const sr = ScrollReveal({
     distance: '60px',
     duration: 2000,
     delay: 200,
-//     reset: true
+    // reset: true
 });
+
+// Navbar reveal
+sr.reveal('.nav', {
+    delay: 300,
+    distance: '20px',
+    origin: 'top',
+    reset: false
+});
+sr.reveal('.card', {
+    distance: '20px',
+    origin: 'top',
+    duration: 2000,  
+    interval: 200    
+});
+
+
+// Other elements reveal
+sr.reveal('.home__data, .about__img, .skills__subtitle, .skills__text',{}); 
+sr.reveal('.home__img, .about__subtitle, .about__text, .skills__img',{delay: 400}); 
+sr.reveal('.home__social-icon',{ interval: 200}); 
+sr.reveal('.skills__data, .work__img, .contact__input',{interval: 200});
+
+
 const scriptURL = 'https://script.google.com/macros/s/AKfycbyPtTHfGTxIGeyHWCkO05ammq6cdyXlzOFnI20HRB2lVzwZCAe_Y3QQIkt_MRd0Pt-53A/exec'
 
 const form = document.forms['contact-form'];
@@ -69,8 +92,23 @@ form.addEventListener('submit', e => {
 });
 
 
+// Get the button
+let backToTopBtn = document.getElementById("back-to-top");
 
-sr.reveal('.home__data, .about__img, .skills__subtitle, .skills__text',{}); 
-sr.reveal('.home__img, .about__subtitle, .about__text, .skills__img',{delay: 400}); 
-sr.reveal('.home__social-icon',{ interval: 200}); 
-sr.reveal('.skills__data, .work__img, .contact__input',{interval: 200}); 
+// Show or hide the button when scrolling
+window.onscroll = function() {
+    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        backToTopBtn.classList.add("show-back-to-top");
+    } else {
+        backToTopBtn.classList.remove("show-back-to-top");
+    }
+};
+
+// Scroll back to top when the button is clicked
+backToTopBtn.addEventListener("click", function(e) {
+    e.preventDefault(); // Prevent default anchor behavior
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth" // Smooth scrolling effect
+    });
+});
