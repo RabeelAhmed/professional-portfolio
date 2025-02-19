@@ -1,15 +1,28 @@
 /*===== MENU SHOW =====*/ 
-const showMenu = (toggleId, navId) =>{
+const showMenu = (toggleId, navId) => {
     const toggle = document.getElementById(toggleId),
-    nav = document.getElementById(navId)
+          nav = document.getElementById(navId),
+          menuIcon = document.getElementById('menu-icon'); // Get the icon element
 
-    if(toggle && nav){
-        toggle.addEventListener('click', ()=>{
-            nav.classList.toggle('show')
-        })
+    if (toggle && nav) {
+        toggle.addEventListener('click', () => {
+            nav.classList.toggle('show');
+            
+            // Toggle between hamburger and 'X' icon
+            if (nav.classList.contains('show')) {
+                menuIcon.classList.replace('bx-menu', 'bx-x'); // Show 'X' when menu is open
+                menuIcon.classList.add('rotate-icon'); // Add rotate class for animation
+            } else {
+                menuIcon.classList.replace('bx-x', 'bx-menu'); // Show hamburger when menu is closed
+                menuIcon.classList.remove('rotate-icon'); // Remove rotate class
+            }
+        });
     }
-}
-showMenu('nav-toggle','nav-menu')
+};
+showMenu('nav-toggle', 'nav-menu');
+
+
+
 
 /*==================== REMOVE MENU MOBILE ====================*/
 const navLink = document.querySelectorAll('.nav__link')
@@ -24,23 +37,24 @@ navLink.forEach(n => n.addEventListener('click', linkAction))
 /*==================== SCROLL SECTIONS ACTIVE LINK ====================*/
 const sections = document.querySelectorAll('section[id]')
 
-const scrollActive = () =>{
+const scrollActive = () => {
     const scrollDown = window.scrollY
 
-  sections.forEach(current =>{
+    sections.forEach(current => {
         const sectionHeight = current.offsetHeight,
               sectionTop = current.offsetTop - 58,
               sectionId = current.getAttribute('id'),
-              sectionsClass = document.querySelector('.nav__menu a[href*=' + sectionId + ']')
-        
-        if(scrollDown > sectionTop && scrollDown <= sectionTop + sectionHeight){
+              sectionsClass = document.querySelector('.nav__menu a[href*="' + sectionId + '"]')
+
+        if (scrollDown > sectionTop && scrollDown <= sectionTop + sectionHeight) {
             sectionsClass.classList.add('active-link')
-        }else{
+        } else {
             sectionsClass.classList.remove('active-link')
-        }                                                    
+        }
     })
 }
 window.addEventListener('scroll', scrollActive)
+
 
 /*===== SCROLL REVEAL ANIMATION =====*/
 
@@ -52,13 +66,6 @@ const sr = ScrollReveal({
     // reset: true
 });
 
-// Navbar reveal
-sr.reveal('.nav', {
-    delay: 300,
-    distance: '20px',
-    origin: 'top',
-    reset: false
-});
 sr.reveal('.card', {
     distance: '20px',
     origin: 'top',

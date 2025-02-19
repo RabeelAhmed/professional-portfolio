@@ -166,6 +166,25 @@ img {
   font-size: 1.5rem;
   cursor: pointer;
 }
+/* Hamburger to X Icon Animation */
+.nav__toggle i {
+  transition: transform 0.5s ease, opacity 0.3s ease; /* Smooth transform and opacity */
+}
+
+.hidden-icon {
+  opacity: 0; /* Fades out the hidden icon */
+}
+/* Icon transition between hamburger and X */
+#menu-icon {
+  transition: transform 0.5s ease, opacity 0.3s ease; /* Smooth transition */
+}
+
+/* Rotate icon for X effect */
+.rotate-icon {
+  transform: rotate(180deg); /* Rotate the icon */
+}
+
+
 
 /*Active menu*/
 .active-link::after {
@@ -706,7 +725,7 @@ img {
 }
 
 .back-to-top:hover {
-  background-color: #A4B465;
+  background-color: #DDEB9D;
 }
 
 /* Show the button when the user scrolls down */
